@@ -1,1 +1,3 @@
-console.log('catalog-filter')
+'use strict'
+
+console.log('catalog-filter v2')

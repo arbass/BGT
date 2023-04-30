@@ -1,3 +1,5 @@
+'use strict'
+
 function filterCatalog_height() {
 	if (window.innerWidth >= 768) {
 		console.log('работаем!')
