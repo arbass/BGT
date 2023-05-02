@@ -15,6 +15,9 @@ const all_uiComponent_filterCounters = document.querySelectorAll('.is-counter')
 const uiComponent_additionalClearButton = document.querySelector(
 	'#filter_additional-buttons-group'
 )
+const all_uiComponent_additionalClearButton = document.querySelectorAll(
+	'[fs-cmsfilter-element="clear"]'
+)
 //–––––
 //––––––––––––––––––––––––––––––
 let windowHeight = window.innerHeight
@@ -161,3 +164,23 @@ function filterCatalog_height() {
 window.addEventListener('resize', filterCatalog_height)
 
 filterCatalog_height()
+
+//–––––
+//––––––––––––––––––––––––––––––
+//UI–––filter reset, return initial buttons
+all_uiComponent_additionalClearButton.forEach(button => {
+	button.addEventListener('click', function () {
+		setTimeout(function () {
+			const buttonBigCategory = document.querySelector(
+				'#filter-big-category-button-first'
+			)
+			const buttonSmallCategory = document.querySelector(
+				'#filter-category-button-first'
+			)
+
+			buttonBigCategory.click()
+			buttonSmallCategory.click()
+		}, 100)
+	})
+})
+//––––––––––––––––––––––––––––––
