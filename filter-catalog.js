@@ -21,9 +21,24 @@ let windowHeight = window.innerHeight
 
 //–––––
 //––––––––––––––––––––––––––––––
+//UI–––filter remove big categories from card
+//––––––––––––––––––––––––––––––
+function filterUpdate_removingBigCategoriesFromCard() {
+	let allBigCategoriesInsideCards = document.querySelectorAll(
+		'.big-category-id.w-condition-invisible'
+	)
+
+	allBigCategoriesInsideCards.forEach(el => {
+		el.remove()
+	})
+}
+
+//–––––
+//––––––––––––––––––––––––––––––
 //UI–––filter param counter
 //––––––––––––––––––––––––––––––
 function uiChangeCount() {
+	filterUpdate_removingBigCategoriesFromCard()
 	setTimeout(function () {
 		filterCatalog_height()
 		let uiComponent_additionalFilterButtons1 = document.querySelectorAll(
