@@ -30,6 +30,7 @@ const uiComponent_filterCategoryButtons = document.querySelectorAll(
 const uiComponent_filterAncTrigger = document.querySelector(
 	'#section_filter-anc-click'
 )
+const uiComponent_resetAllButton = document.querySelector('#reset-all-button')
 
 //–––––
 //––––––––––––––––––––––––––––––
@@ -149,6 +150,9 @@ observer_filterGrid.observe(uiComponent_filterAdditional, { attributes: true })
 //––––––––––––––––––––––––––––––
 function filterCatalog_height() {
 	if (window.innerWidth >= 768) {
+		//for home page
+		//for tag-cat page
+		//for tag-neuro page
 		const uiComponent_filterSickyHeight = uiComponent_filterSicky.offsetHeight
 		const uiComponent_menuHeight = uiComponent_menu.offsetHeight
 		uiComponent_filterAdditional.style.height = `${
@@ -199,4 +203,7 @@ uiComponent_filterCategoryButtons.forEach(el => {
 	el.addEventListener('click', function () {
 		uiComponent_filterAncTrigger.click()
 	})
+})
+uiComponent_resetAllButton.addEventListener('click', function () {
+	uiComponent_filterAncTrigger.click()
 })
