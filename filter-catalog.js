@@ -24,6 +24,13 @@ const uiComponent_filterPopupButtonOpen = document.querySelector(
 const uiComponent_filterPopupButtonClose = document.querySelector(
 	'#is-filter_additional-button-close'
 )
+const uiComponent_filterCategoryButtons = document.querySelectorAll(
+	'[fs-cmsfilter-field]'
+)
+const uiComponent_filterAncTrigger = document.querySelector(
+	'#section_filter-anc-click'
+)
+
 //–––––
 //––––––––––––––––––––––––––––––
 let windowHeight = window.innerHeight
@@ -90,7 +97,7 @@ function uiFunction_tagsLimit() {
 				let clonableTag = allInnerTags[0].cloneNode(true)
 				let clonableTagInnerElements = clonableTag.querySelectorAll('*')
 				clonableTagInnerElements[0].classList.add('text-color-black-6')
-				clonableTagInnerElements[0].textContent = allInnerTags.length + ' more'
+				clonableTagInnerElements[0].textContent = '+' + allInnerTags.length
 				// clonableTagInnerElements[1].classList.add('hide')
 				allInnerTags[3].insertAdjacentElement('afterend', clonableTag)
 			}
@@ -159,6 +166,7 @@ filterCatalog_height()
 //–––––
 //––––––––––––––––––––––––––––––
 //UI–––filter reset, return initial buttons
+//––––––––––––––––––––––––––––––
 all_uiComponent_additionalClearButton.forEach(button => {
 	button.addEventListener('click', function () {
 		setTimeout(function () {
@@ -178,6 +186,17 @@ all_uiComponent_additionalClearButton.forEach(button => {
 //–––––
 //––––––––––––––––––––––––––––––
 //UI–––Close button event
+//––––––––––––––––––––––––––––––
 uiComponent_filterPopupButtonClose.addEventListener('click', function () {
 	uiComponent_filterPopupButtonOpen.click()
+})
+
+//–––––
+//––––––––––––––––––––––––––––––
+//UI–––Filter scroll to top
+//––––––––––––––––––––––––––––––
+uiComponent_filterCategoryButtons.forEach(el => {
+	el.addEventListener('click', function () {
+		uiComponent_filterAncTrigger.click()
+	})
 })
