@@ -31,6 +31,9 @@ const uiComponent_filterAncTrigger = document.querySelector(
 	'#section_filter-anc-click'
 )
 const uiComponent_resetAllButton = document.querySelector('#reset-all-button')
+const uiComponent_errorMessage = document.querySelector(
+	'#fs-cmsfilter-element-empty-state-custom'
+)
 
 //–––––
 //––––––––––––––––––––––––––––––
@@ -137,8 +140,10 @@ const observer_filterGrid = new MutationObserver(() => {
 		getComputedStyle(uiComponent_filterAdditional).display !== 'none'
 	if (isDisplayed) {
 		uiComponent_filterGrid.classList.add('is-less-columns')
+		uiComponent_errorMessage.classList.add('is-less-columns')
 	} else {
 		uiComponent_filterGrid.classList.remove('is-less-columns')
+		uiComponent_errorMessage.classList.remove('is-less-columns')
 	}
 })
 
